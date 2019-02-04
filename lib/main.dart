@@ -46,7 +46,7 @@ class MyHomePage extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
             Icon(Icons.camera),
-            Icon(Icons.cake),
+            new Counter(),
             Icon(Icons.add_alarm)
           ],
         ),
@@ -55,46 +55,45 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-// class MyHomePage extends StatefulWidget {
-//   @override
-//   State<StatefulWidget> createState() {
-//     // TODO: implement createState
-//     return MyHomePageState();
-//   }
+class Counter extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return CounterState();
+  }
 
-// }
+}
 
-// class MyHomePageState extends State<MyHomePage>{
-//   int counter = 0;
-//  @override
-//   Widget build(BuildContext context) {
-//     // TODO: implement build
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Hello, RawitSHIE!"),
-//       ),
-//       body:Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceAround,
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: <Widget>[
-//           Text("counter status: ${counter}"),
-//           Text("Value 2"),
-//           Text("Value 3")
-//         ],
-//       ),
-//       floatingActionButton: IconButton(
-//         icon: Icon(Icons.add),
-//         onPressed: () {
-//           setState(() {
-//             counter++;
-//           });
-//           print(" counter value $counter");
-//           },
-//       )
-//     );
-//   }
-
-// }
+class CounterState extends State<Counter>{
+  int counter = 0;
+ @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text("Hello, RawitSHIE!"),
+      // ),
+      body:Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text("counter status: ${counter}"),
+          Text("Value 2"),
+          Text("Value 3")
+        ],
+      ),
+      floatingActionButton: IconButton(
+        icon: Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            counter++;
+          });
+          print(" counter value $counter");
+          },
+      )
+    );
+  }
+}
 
 // class MyHomePage extends StatelessWidget {
 //   int counter = 0;
