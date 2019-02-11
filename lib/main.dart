@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import './ui/first_screen.dart';
+import './ui/second_screen.dart';
+import './ui/my_custom_form.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -12,48 +16,54 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => MyCustomForm(),
+        "/second": (context) => SecondScreen(),
+        // "/detail": (context) => DetailScreen(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Tabbar"),
-          bottom: TabBar(
-            tabs: <Widget>[
-              Tab(
-                icon: Icon(Icons.camera),
-                text: "camera",
-              ),
-              Tab(
-                icon: Icon(Icons.cake),
-                text: "cake",
-              ),
-              Tab(
-                icon: Icon(Icons.add_alarm),
-                text: "alarm"
-              )
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: <Widget>[
-            Icon(Icons.camera),
-            new Counter(),
-            Icon(Icons.add_alarm)
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class MyHomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: implement build
+//     return DefaultTabController(
+//       length: 3,
+//       child: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Tabbar"),
+//           bottom: TabBar(
+//             tabs: <Widget>[
+//               Tab(
+//                 icon: Icon(Icons.camera),
+//                 text: "camera",
+//               ),
+//               Tab(
+//                 icon: Icon(Icons.cake),
+//                 text: "cake",
+//               ),
+//               Tab(
+//                 icon: Icon(Icons.add_alarm),
+//                 text: "alarm"
+//               )
+//             ],
+//           ),
+//         ),
+//         body: TabBarView(
+//           children: <Widget>[
+//             Icon(Icons.camera),
+//             new Counter(),
+//             Icon(Icons.add_alarm)
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class Counter extends StatefulWidget {
   @override
