@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "466149161258",
+    "firebase_url": "https://lab01-rawitgun.firebaseio.com",
+    "project_id": "lab01-rawitgun",
+    "storage_bucket": "lab01-rawitgun.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466149161258:android:acd23f7956048566",
+        "android_client_info": {
+          "package_name": "com.example.lab01.rawitgun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466149161258-h0qjuqehf7p7e0tcerplb3vts4lr06qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkwVn2On15h-WikQlk4GTCieVbmGItYno"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
