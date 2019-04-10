@@ -21,7 +21,7 @@ class Todo {
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {
       columnTitle: title,
-      columnDone : done == true ? 1 : 0
+      columnDone : done? 1 : 0
     };
 
     if (id != null){

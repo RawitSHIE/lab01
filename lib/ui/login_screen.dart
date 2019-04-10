@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget{
 class LoginScreenState extends State {
   final _formkey =GlobalKey<FormState>();
   FirebaseAuth auth = FirebaseAuth.instance;
+  
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class LoginScreenState extends State {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  controller: emailController,
                   decoration: InputDecoration(labelText: "Email"),
                   validator: (value){
                     if (value.isEmpty) return "Email is require";
@@ -36,6 +40,7 @@ class LoginScreenState extends State {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 TextFormField(
+                  controller: passwordController,
                   decoration: InputDecoration(labelText: "Password"),
                   obscureText: true,
                   validator: (value){
@@ -47,8 +52,8 @@ class LoginScreenState extends State {
                     child: Text("Login"),
                     onPressed: () {
                       auth.signInWithEmailAndPassword(
-                        email:"rawitgun@gmail.com",
-                        password: "12345678",
+                        email:emailController.text,
+                        password: passwordController.text,
                       ).then((FirebaseUser user){
                         if(user.isEmailVerified){
                           print("got ot home");

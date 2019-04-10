@@ -13,6 +13,9 @@ class RegisterScreenState extends State {
   final _formkey = GlobalKey<FormState>();
 
   FirebaseAuth auth = FirebaseAuth.instance;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController repasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -28,6 +31,7 @@ class RegisterScreenState extends State {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  controller: emailController,
                   decoration: InputDecoration(labelText: "Email"),
                   validator: (value) {
                     if (value.isEmpty) return "Email is require";
@@ -35,6 +39,7 @@ class RegisterScreenState extends State {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 TextFormField(
+                  controller: passwordController,
                   decoration: InputDecoration(labelText: "Password"),
                   obscureText: true,
                   validator: (value) {
@@ -44,6 +49,7 @@ class RegisterScreenState extends State {
                   keyboardType: TextInputType.text,
                 ),
                 TextFormField(
+                  controller: repasswordController,
                   decoration: InputDecoration(labelText: "Repeat Password"),
                   obscureText: true,
                   validator: (value) {
@@ -54,15 +60,22 @@ class RegisterScreenState extends State {
                 RaisedButton(
                   child: Text("register"),
                   onPressed: () {
-                    auth
-                        .createUserWithEmailAndPassword(email: "rawitgun@gmail.com", password: "12345678")
-                        .then((FirebaseUser user) {
-                          user.sendEmailVerification();
-                          print(user.email);
-                        }).catchError((error){
-                          print("$error");
-                        }
-                        );
+                    if (_formkey.currentState.validate()) {
+                      auth
+                          .createUserWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text)
+                          .then((FirebaseUser user) {
+                        user.sendEmailVerification().then((user) {
+                          Navigator.pop(context);
+                        });
+                        print(user.email);
+                      }).catchError((error) {
+                        print("$error");
+                      });
+                    }else{
+                      print("error");
+                    }
                   },
                 )
               ],

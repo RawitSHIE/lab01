@@ -5,6 +5,7 @@ import './ui/my_custom_form.dart';
 import './ui/todo_screen.dart';
 import './ui/login_screen.dart';
 import './ui/register_screen.dart';
+import './ui/book_screen.dart';
 
 
 void main() => runApp(MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => LoginScreen(),
-        "/register": (context) => RegisterScreen(),
+        "/register": (context) => BookScreen(),
         "/second": (context) => SecondScreen(),
         // "/detail": (context) => DetailScreen(),
       },
